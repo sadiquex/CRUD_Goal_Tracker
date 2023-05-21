@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const GoalsList = (props) => {
-  console.log("goals are: " + " " + props.items);
+const GoalsList = ({ items }) => {
+  items.map((item) => console.log(item.title));
 
   return (
     <ul>
-      {props.items.map((item) => {
-        <li>{item.title}</li>;
+      {items.map((item) => {
+        <li key={item.id}>{item.title}</li>;
       })}
     </ul>
   );

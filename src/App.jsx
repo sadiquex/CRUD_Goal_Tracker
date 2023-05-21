@@ -14,8 +14,11 @@ const App = () => {
       // spread the previous goals into the array
       const updatedGoals = [...prevGoals];
       // add the new element to the beginning of the array with unshift
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      console.log(updatedGoals);
+      updatedGoals.unshift({
+        title: enteredText,
+        id: Math.random().toString(),
+      });
+      // console.log(updatedGoals);
       return updatedGoals;
     });
   };
@@ -24,17 +27,18 @@ const App = () => {
     <p style={{ textAlign: "center" }}>There are currently no goals</p>
   );
 
-  // if there are goals show them
+  // if there are goals show them.props.items
   if (courseGoals.length > 0) {
     content = <GoalsList items={courseGoals} />;
+    // console.log(content);
   }
 
   return (
     <div>
-      <section className="goal-form">
+      <section>
         <GoalInput goalInput={addGoalHandler} />
       </section>
-      <section id="goals">
+      <section>
         {/* show default content */}
         {content}
       </section>

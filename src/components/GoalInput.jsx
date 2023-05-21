@@ -17,6 +17,7 @@ const GoalInput = (props) => {
     if (enteredValue.trim().length === 0) {
       return;
     }
+    // pass entered value as a parameter to addGoalHandler in App
     props.goalInput(enteredValue);
   };
 
@@ -24,7 +25,7 @@ const GoalInput = (props) => {
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
         <label>Course Goal</label>
-        <input type="text" onChange={goalInputHandler} />
+        <input type="text" onChange={goalInputHandler} value={enteredValue} />
         <button>Add Goal</button>
       </div>
     </form>
