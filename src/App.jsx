@@ -23,16 +23,6 @@ const App = () => {
     });
   };
 
-  let content = (
-    <p style={{ textAlign: "center" }}>There are currently no goals</p>
-  );
-
-  // if there are goals show them.props.items
-  if (courseGoals.length > 0) {
-    content = <GoalsList items={courseGoals} />;
-    // console.log(content);
-  }
-
   return (
     <div>
       <section>
@@ -40,7 +30,8 @@ const App = () => {
       </section>
       <section>
         {/* show default content */}
-        {content}
+        {typeof courseGoals}
+        {courseGoals.length > 0 && <GoalsList items={courseGoals} />}
       </section>
     </div>
   );

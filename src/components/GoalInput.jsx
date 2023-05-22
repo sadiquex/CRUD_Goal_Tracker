@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-const GoalInput = (props) => {
+const GoalInput = ({ goalInput }) => {
   const [enteredValue, setEnteredValue] = useState("");
   // function to handle goal input
   const goalInputHandler = (e) => {
@@ -18,7 +18,7 @@ const GoalInput = (props) => {
       return;
     }
     // pass entered value as a parameter to addGoalHandler in App
-    props.goalInput(enteredValue);
+    goalInput(enteredValue);
   };
 
   return (
