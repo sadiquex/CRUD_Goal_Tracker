@@ -19,6 +19,9 @@ const GoalInput = ({ goalInput }) => {
     }
     // pass entered value as a parameter to addGoalHandler in App
     goalInput(enteredValue);
+
+    // clear the input field
+    setEnteredValue("");
   };
 
   return (

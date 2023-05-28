@@ -3,10 +3,7 @@ import GoalInput from "./components/GoalInput";
 import GoalsList from "./components/GoalsList";
 
 const App = () => {
-  const [courseGoals, setCourseGoals] = useState([
-    { title: "Do all exercises", id: "001" },
-    { title: "Delete the pictures", id: "002" },
-  ]);
+  const [courseGoals, setCourseGoals] = useState([]);
 
   // function to add a goal
   const addGoalHandler = (enteredText) => {
@@ -18,7 +15,6 @@ const App = () => {
         title: enteredText,
         id: Math.random().toString(),
       });
-      // console.log(updatedGoals);
       return updatedGoals;
     });
   };
@@ -30,7 +26,6 @@ const App = () => {
       </section>
       <section>
         {/* show default content */}
-        {typeof courseGoals}
         {courseGoals.length > 0 && <GoalsList items={courseGoals} />}
       </section>
     </div>
