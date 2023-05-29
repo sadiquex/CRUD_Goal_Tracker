@@ -1,6 +1,7 @@
 import { useState } from "react";
 import GoalInput from "./components/GoalInput";
 import GoalsList from "./components/GoalsList";
+import styled from "styled-components";
 
 const App = () => {
   const [courseGoals, setCourseGoals] = useState([]);
@@ -19,6 +20,11 @@ const App = () => {
     });
   };
 
+  // delete function
+  const deleteHandler = (id) => {
+    setCourseGoals(courseGoals.filter((courseGoals) => courseGoals.id !== id));
+  };
+
   return (
     <div>
       <section>
@@ -26,7 +32,9 @@ const App = () => {
       </section>
       <section>
         {/* show default content */}
-        {courseGoals.length > 0 && <GoalsList items={courseGoals} />}
+        {courseGoals.length > 0 && (
+          <GoalsList items={courseGoals} onDelete={deleteHandler} />
+        )}
       </section>
     </div>
   );
