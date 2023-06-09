@@ -20,6 +20,11 @@ const App = () => {
     });
   };
 
+  // edit handler
+  const editHandler = (id) => {
+    setCourseGoals(courseGoals[id]);
+  };
+
   // delete function
   const deleteHandler = (id) => {
     setCourseGoals(courseGoals.filter((courseGoals) => courseGoals.id !== id));
@@ -33,7 +38,11 @@ const App = () => {
       <section>
         {/* show default content */}
         {courseGoals.length > 0 && (
-          <GoalsList items={courseGoals} onDelete={deleteHandler} />
+          <GoalsList
+            items={courseGoals}
+            onDelete={deleteHandler}
+            onEdit={editHandler}
+          />
         )}
       </section>
     </div>
